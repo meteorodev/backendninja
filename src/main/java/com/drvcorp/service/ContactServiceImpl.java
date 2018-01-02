@@ -46,14 +46,18 @@ public class ContactServiceImpl implements ContactService{
 
 	@Override
 	public Contact findContactById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		return contactRepository.findById(id);
 	}
 
 	@Override
-	public void removeContact(Contact contact) {
+	public void removeContact(int id) {
 		// TODO Auto-generated method stub
-		
+		Contact c = contactRepository.findById(id);
+		if(null != c) {
+			contactRepository.delete(c);
+		}
 	}
 
 }
