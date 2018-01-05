@@ -24,7 +24,7 @@ public class ContactConverter {
 		cm.setLastName(contact.getLastName());
 		cm.setTelephone(contact.getTelephone());
 		cm.setCity(contact.getCity());
-		
+		cm.setId(contact.getId());
 		return cm;
 	}
 }

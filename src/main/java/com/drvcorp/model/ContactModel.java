@@ -6,7 +6,7 @@ public class ContactModel {
 	private String lastName;
 	private String telephone;
 	private String city;
-
+	private int id;
 	public ContactModel() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,9 +51,17 @@ public class ContactModel {
 		this.city = city;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id=id;
+	}
+	
 	@Override
 	public String toString() {
-		return "firstName "+getFirstName()+"? lastName "+getLastName()+"? telephone "+getTelephone()+"? city "+getCity()+"?";
+		return "Id "+getId()+"? firstName "+getFirstName()+"? lastName "+getLastName()+"? telephone "+getTelephone()+"? city "+getCity()+"?";
 	}
 
 }
