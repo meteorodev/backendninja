@@ -36,6 +36,7 @@ public class ContactController {
 	@GetMapping("/contactform")
 	public String redirectContatForm(@RequestParam(name="id",required=false) int id,Model model){
 		ContactModel c = new ContactModel();
+		LOG.info("METHOD: redirectContatForm form -- Contact Exist : "+id);
 		if(id != 0) {
 			c = contactService.findContactModelById(id);
 		}		
@@ -51,11 +52,12 @@ public class ContactController {
 	
 	@PostMapping("/addcontact")
 	public String addcontact(@ModelAttribute(name="contactModel") ContactModel contactModel , Model model){
-		LOG.info("METHOD: addcontact -- Params : "+contactModel.toString());
-				
-		if( contactService.addContact(contactModel) != null){
+		LOG.info("METHOD: addcontact -- Params : "+contactModel.toString());				
+		if( null != contactService.addContact(contactModel)){
+			LOG.info("METHOD: addcontact -- result 1 : ");
 			model.addAttribute("result", 1);
 		}else{
+			LOG.info("METHOD: addcontact -- result 0 : ");
 			model.addAttribute("result", 0);
 		}
 		//return ViewConstant.CONTACTS;
@@ -66,7 +68,7 @@ public class ContactController {
 	public ModelAndView showContacs(){
 		ModelAndView mav = new ModelAndView(ViewConstant.CONTACTS);
 		mav.addObject("contacts", contactService.listAllContacts());
-		LOG.info("METHOD: showContacs -- Params : "+mav.toString());
+		LOG.info("METHOD: showContacs -- Params : ");
 		return mav;
 	}
 	
