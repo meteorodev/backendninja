@@ -17,7 +17,6 @@ public class ContactConverter {
 		c.setId(contactModel.getId());
 		return c;
 	}
-	
 	public ContactModel contact2ContactModel(Contact contact){
 		ContactModel cm= new ContactModel();
 		cm.setFirstName(contact.getFirstName());
