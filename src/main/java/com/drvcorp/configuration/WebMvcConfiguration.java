@@ -3,11 +3,11 @@ package com.drvcorp.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.drvcorp.component.RequestTimeInterseptor;
 
-public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
+public class WebMvcConfiguration implements WebMvcConfigurer{
 	@Autowired
 	@Qualifier("requestTimeInterceptor")
 	private RequestTimeInterseptor requestTimeInterceptor;
@@ -16,6 +16,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
 		registry.addInterceptor(requestTimeInterceptor);
-	} 
+	}
+	
 	
 }

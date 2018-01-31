@@ -31,6 +31,7 @@ public class RequestTimeInterseptor extends HandlerInterceptorAdapter{
 		request.setAttribute("startTime", System.currentTimeMillis());
 		return true;
 	}
+	
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
